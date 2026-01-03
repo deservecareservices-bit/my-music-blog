@@ -110,14 +110,34 @@
     <div class="background-image"></div>
 
     <!-- Welcome text -->
-    <h2>Welcome!</h2>
+    <h2>Jah</h2>
     <p>I am glad you're here</p>
-  </main>
 
-  <!-- Autoplay music -->
-  <audio autoplay loop>
+    <!-- Music control button -->
+    <button id="music-btn">Pause Music</button>
+</main>
+<!-- Autoplay music with Play/Pause control -->
+<audio id="bg-music" autoplay loop>
     <source src="audio/Date Night Master.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
-  </audio>
+</audio>
+
+<script>
+    // Get references to the audio and button
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('music-btn');
+
+    // Add click event to toggle play/pause
+    btn.addEventListener('click', () => {
+        if (music.paused) {
+            music.play();
+            btn.textContent = 'Pause Music';
+        } else {
+            music.pause();
+            btn.textContent = 'Play Music';
+        }
+    });
+</script>
+
 </body>
 </html>

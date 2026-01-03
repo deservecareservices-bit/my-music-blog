@@ -120,3 +120,22 @@ footer {
     gap: 10px;
   }
 }
+#music-btn {
+    position: relative;
+    z-index: 2;                 /* ensures it stays above the background image */
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.6); /* semi-transparent background */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#music-btn:hover {
+    background-color: rgba(255,215,0,0.8); /* gold on hover */
+    color: black;
+}
