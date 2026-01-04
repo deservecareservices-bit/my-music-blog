@@ -6,7 +6,6 @@
   <title>Home - My Music Blog</title>
 
   <style>
-    /* RESET */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -15,7 +14,6 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
     header {
       text-align: center;
       padding: 20px;
@@ -41,7 +39,6 @@
       color: gold;
     }
 
-    /* MAIN LAYOUT */
     main {
       position: relative;
       display: flex;
@@ -50,14 +47,12 @@
       margin-top: 60px;
     }
 
-    /* NAME ABOVE IMAGE */
     .name-heading {
       font-size: 48px;
       margin-bottom: 20px;
       text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
     }
 
-    /* IMAGE CONTAINER */
     .background-image {
       width: 380px;
       height: 380px;
@@ -69,17 +64,16 @@
       position: relative;
     }
 
-    /* TEXT ON IMAGE */
+    /* TEXT AT BOTTOM OF IMAGE */
     .welcome-text {
       position: absolute;
-      top: 20px;
+      bottom: 15px;
       width: 100%;
       text-align: center;
       font-size: 22px;
-      text-shadow: 1px 1px 8px rgba(0,0,0,0.8);
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.9);
     }
 
-    /* MUSIC BUTTON */
     #music-btn {
       margin-top: 30px;
       padding: 10px 20px;
@@ -95,7 +89,6 @@
       background: rgba(255,255,255,0.25);
     }
 
-    /* HIDE AUDIO */
     audio {
       display: none;
     }
@@ -118,37 +111,15 @@
   </header>
 
   <main>
-    <!-- NAME ABOVE PHOTO -->
     <h2 class="name-heading">Jah</h2>
 
-    <!-- IMAGE WITH TEXT -->
     <div class="background-image">
       <p class="welcome-text">I am glad you're here</p>
     </div>
 
-    <!-- MUSIC BUTTON -->
     <button id="music-btn">Pause Music</button>
   </main>
 
-  <!-- BACKGROUND MUSIC -->
   <audio id="bg-music" autoplay loop>
-    <source src="audio/Date Night Master.mp3" type="audio/mpeg">
-  </audio>
+    <source src="audio/Date Night Master.mp3" type="audi
 
-  <script>
-    const music = document.getElementById("bg-music");
-    const btn = document.getElementById("music-btn");
-
-    btn.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
-        btn.textContent = "Pause Music";
-      } else {
-        music.pause();
-        btn.textContent = "Play Music";
-      }
-    });
-  </script>
-
-</body>
-</html>
