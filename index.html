@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home - My Music Blog</title>
-  <link rel="stylesheet" href="css/style.css">
+
   <style>
+    /* RESET */
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
+      background-color: #111;
       color: white;
-      position: relative;
       min-height: 100vh;
-      background-color: #111; /* fallback color */
     }
 
-    /* Header & nav */
+    /* HEADER */
     header {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
       text-align: center;
-      background: rgba(0,0,0,0.3);
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     nav ul {
       list-style: none;
       padding: 0;
-      margin: 10px 0 0 0;
+      margin: 10px 0 0;
       display: flex;
       justify-content: center;
       gap: 15px;
@@ -38,63 +35,75 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #ffd700;
+      color: gold;
     }
 
-    /* Main section */
+    /* MAIN LAYOUT */
     main {
       position: relative;
-      z-index: 2;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      height: calc(100vh - 100px); /* header space */
-      text-align: center;
+      align-items: center;
+      margin-top: 60px;
     }
 
-    main p {
-  font-size: 24px;
-  margin-bottom: 40px;          /* 👈 pushes Jah DOWN */
-  margin-top: -40px;            /* 👈 pulls text UP */
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
-}
+    /* NAME ABOVE IMAGE */
+    .name-heading {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
 
-main h2 {
-  font-size: 48px;
-  margin-top: 20px;             /* 👈 extra space below text */
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-}
-
-
-    /* Smaller, semi-transparent background image */
+    /* IMAGE CONTAINER */
     .background-image {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;             /* adjust size here */
-      height: 400px;            /* adjust size here */
-      background-image: url('images/profile-bg.jpg');
+      width: 380px;
+      height: 380px;
+      background-image: url("images/profile-bg.jpg");
       background-size: cover;
       background-position: center;
-      opacity: 0.3;             /* makes it semi-transparent */
-      border-radius: 20px;      /* optional rounded corners */
-      z-index: 1;
+      border-radius: 20px;
+      opacity: 0.35;
+      position: relative;
     }
 
-    /* Audio hidden but plays */
+    /* TEXT ON IMAGE */
+    .welcome-text {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 22px;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.8);
+    }
+
+    /* MUSIC BUTTON */
+    #music-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    #music-btn:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* HIDE AUDIO */
     audio {
       display: none;
     }
-
   </style>
 </head>
+
 <body>
+
   <header>
     <h1>My Music Blog</h1>
     <nav>
@@ -108,40 +117,38 @@ main h2 {
     </nav>
   </header>
 
- <main>
-    <!-- Background image div -->
-    <div class="background-image"></div>
+  <main>
+    <!-- NAME ABOVE PHOTO -->
+    <h2 class="name-heading">Jah</h2>
 
-    <!-- Welcome text -->
-    <p>I am glad you're here</p>
-    <h2>Jah</h2>
+    <!-- IMAGE WITH TEXT -->
+    <div class="background-image">
+      <p class="welcome-text">I am glad you're here</p>
+    </div>
 
-    <!-- Music control button -->
+    <!-- MUSIC BUTTON -->
     <button id="music-btn">Pause Music</button>
-</main>
+  </main>
 
-<!-- Autoplay music with Play/Pause control -->
-<audio id="bg-music" autoplay loop>
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bg-music" autoplay loop>
     <source src="audio/Date Night Master.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+  </audio>
 
-<script>
-    // Get references to the audio and button
-    const music = document.getElementById('bg-music');
-    const btn = document.getElementById('music-btn');
+  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
 
-    // Add click event to toggle play/pause
-    btn.addEventListener('click', () => {
-        if (music.paused) {
-            music.play();
-            btn.textContent = 'Pause Music';
-        } else {
-            music.pause();
-            btn.textContent = 'Play Music';
-        }
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "Pause Music";
+      } else {
+        music.pause();
+        btn.textContent = "Play Music";
+      }
     });
-</script>
+  </script>
 
 </body>
 </html>
